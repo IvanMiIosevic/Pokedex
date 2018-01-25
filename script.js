@@ -12,7 +12,25 @@ xhr.onload = function() {
 xhr.send();
 function Mypokedex(array,keys){
     document.forms.namedItem('pokename').onsubmit =function(){
+        document.querySelector('#name').innerHTML =  "";
+        var  selectedPokemon = this.elements.namedItem('name').value;
+        for(var i = 0; i < keys.length; i++){
+        var name = nameModification(array[i].names.en);
+        if(parseInt(selectedPokemon) === array[i].national_id || selectedPokemon === name){
+            document.querySelector('#name').innerHTML += "&nbsp;" + array[i].names.en + "&nbsp;/&nbsp;" + array[i].names.fr;
+            } 
+        }    
         return false;
     };
+}
+
+function nameModification(name){
+    var rawName = name;
+    var loweredName = rawName.toLowerCase();
+    var pokeclean = loweredName.replace(/\s/g, '').replace(":","").replace(".","-").replace("'","").replace("♀","f").replace("♂","m"); 
+    if(pokeclean == 'mimejr-'){
+        pokeclean = "mime-jr";
+    }
+    return pokeclean;
 }
 };
