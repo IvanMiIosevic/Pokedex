@@ -13,12 +13,15 @@ xhr.send();
 function Mypokedex(array,keys){
     document.forms.namedItem('pokename').onsubmit =function(){
         document.querySelector('#name').innerHTML =  "";
+        document.querySelector('#types').innerHTML =  "";
+        document.querySelector('img').src = ""; 
         var  selectedPokemon = this.elements.namedItem('name').value;
         for(var i = 0; i < keys.length; i++){
         var name = nameModification(array[i].names.en);
         if(parseInt(selectedPokemon) === array[i].national_id || selectedPokemon === name){
             document.querySelector('#name').innerHTML += "&nbsp;" + array[i].names.en + "&nbsp;/&nbsp;" + array[i].names.fr;
             document.querySelector('img').src = getUrl(array[i].national_id, name);
+            getTypes(array[i].types);
             } 
         }    
         return false;
@@ -40,5 +43,14 @@ function getUrl(nationalId,name){
        }else{
         return  "http://www.pokestadium.com/sprites/xy/" + name +".gif";
        }
+}
+function getTypes(types){
+    for(var j in types){
+        if( j == 0){
+        document.querySelector('#types').innerHTML += "&nbsp;" + types[j] ;
+    } else{
+        document.querySelector('#types').innerHTML += "&nbsp;/&nbsp;" + types[j] ;
+    }
+}
 }
 };
