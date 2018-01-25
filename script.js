@@ -7,6 +7,7 @@ xhr.onload = function() {
          var PokeInfo = JSON.parse(xhr.responseText);
          var func = Object.keys(PokeInfo);
         Mypokedex(PokeInfo,func);
+        search(PokeInfo,func);
         }
 };
 xhr.send();
@@ -27,7 +28,6 @@ function Mypokedex(array,keys){
         return false;
     };
 }
-
 function nameModification(name){
     var rawName = name;
     var loweredName = rawName.toLowerCase();
@@ -53,4 +53,21 @@ function getTypes(types){
     }
 }
 }
+function search(array,keys){
+    document.querySelector('#nameinput').onkeydown = function (){
+        var current = document.querySelector('#nameinput').value;
+        var key = event.keyCode || event.charCode;
+        document.querySelector('#prediction').innerHTML ="";
+        if (current.length >= 2){
+        for(var i = 0; i < keys.length; i++){
+            var name = nameModification(array[i].names.en);
+            if(name.startsWith(current) === true){
+            document.querySelector('#prediction').innerHTML += "&nbsp;" + name;
+        }
+        }
+        } else{
+            document.querySelector('#prediction').innerHTML ="";
+        }
+    };
+    }
 };
