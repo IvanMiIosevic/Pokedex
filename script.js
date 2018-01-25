@@ -18,6 +18,7 @@ function Mypokedex(array,keys){
         var name = nameModification(array[i].names.en);
         if(parseInt(selectedPokemon) === array[i].national_id || selectedPokemon === name){
             document.querySelector('#name').innerHTML += "&nbsp;" + array[i].names.en + "&nbsp;/&nbsp;" + array[i].names.fr;
+            document.querySelector('img').src = getUrl(array[i].national_id, name);
             } 
         }    
         return false;
@@ -32,5 +33,12 @@ function nameModification(name){
         pokeclean = "mime-jr";
     }
     return pokeclean;
+}
+function getUrl(nationalId,name){
+    if(nationalId  > 721){
+        return  "http://www.pkparaiso.com/imagenes/sol-luna/sprites/animados/"+ name +".gif"; 
+       }else{
+        return  "http://www.pokestadium.com/sprites/xy/" + name +".gif";
+       }
 }
 };
