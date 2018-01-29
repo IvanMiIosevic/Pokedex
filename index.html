@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,58 @@
     <title>Pokédex</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="img">
-        <img id="img" style="height: 300px;width: 300px;">
+    <div class="form">
+        <form action="" name="pokename" id="myForm">
+            <input type="text" name="name" id="nameinput" placeholder="name or id">
+            <input type="submit" name="btnSubmit">
+        </form>
+        <p id="error"></p>
+        <p id="prediction"></p>
     </div>
-    <p id="prediction"></p>
-    <p id="name"></p>
-    <p id="types"></p>
-    <form action="" name="pokename" id="myForm">
-        <input type="text" name="name" id="nameinput" placeholder="name or id">
-        <input type="submit" name="btnSubmit">
-    </form>
-<script src="script.js"></script>
+    <div class="pokedex">
+        <div id="topPart">
+            <div id="leftTop">
+                <div id="topSpeaker"></div>
+                <div id="rightSpeaker"></div>
+                <div id="leftSpeaker"></div>
+                <div id="bottomSpeaker"></div>
+            </div>
+            <div id="rightTop">
+                <div class="img">
+                    <img id="img" src="">
+                </div>
+            </div>
+        </div>
+        <div id="middleBlock">
+            <div id="middleBlockLeft"></div>
+            <div id="middleBlockMiddle">
+                <div id="smallMiddleBlock"></div>
+            </div>
+            <div id="middleBlockRight"></div>
+        </div>
+        <div id="bottomPart">
+            
+            <div id="bottomStructure">
+                <div id="leftBottom">
+                        <div id="topSpeaker" class="Speakers"></div>
+                        <div id="rightSpeaker" class="Speakers"></div>
+                        <div id="leftSpeaker" class="Speakers"></div>
+                        <div id="bottomSpeaker" class="Speakers"></div>
+                    </div>
+                    <div id="rightBottom">
+                        <div class="infos">
+                                <p id="name"></p>
+                                <p id="types"></p>
+                        </div>
+                        <div id="greyBlock"></div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
