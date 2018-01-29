@@ -10,14 +10,17 @@ img{
 p{
     width: auto;
     text-align: center;
+    margin: auto;
 }
 form{
     width: auto;
     text-align: center;
+    margin: auto;
 }
 .pokedex{
     width: 800px;
     height: 500px;
+    margin: auto;
 }
 #topPart{
     width: 100%;
