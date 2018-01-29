@@ -27,8 +27,14 @@ window.onload = function () {
                     document.querySelector('#error').innerHTML = "";
                     break;
                 } else {
+                    if(parseInt(selectedPokemon)){
                     document.querySelector('img').src = "http://www.pokestadium.com/sprites/xy/unown-interrogation.gif";
-                    document.querySelector('#error').innerHTML = "Sorry , this Pokemon is not in our Database :(";
+                    document.querySelector('#error').innerHTML = ` Pokémon number ${selectedPokemon} not found `;
+                    }
+                    else{
+                        document.querySelector('img').src = "http://www.pokestadium.com/sprites/xy/unown-interrogation.gif";
+                        document.querySelector('#error').innerHTML = ` ${selectedPokemon} not found `;
+                    }
                 }
             }
             return false;
