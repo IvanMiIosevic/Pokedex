@@ -1,9 +1,11 @@
 
-.img{
-    width: auto;
+img{
+    width: 50%;
     height: auto;
     text-align: center;
     border:0;
+    margin-left: 25%;
+    margin-top: 12%;
 }
 p{
     width: auto;
@@ -101,6 +103,8 @@ form{
     border-right: black solid 2px;
     border-left: black solid 2px;
     border-radius: 0px 0px 50px 0px;
+    position: relative;
+    z-index: 3;
 }
 #greyBlock{
     width: 125%;
@@ -140,12 +144,24 @@ border-radius: 50%;
     border-radius: 0px 120px 120px 0px;
     border-bottom: black solid 2px;
     border-top: black solid 2px;
+    position: relative;
+    z-index: 1;
 }
 #screenBottom{
     width: 66%;
     height: 83%;
     background: #F8F8F8;
     margin-top: -45%;
+    margin-left: 15%;
+    border-radius: 15px;
+    border: #282828 solid 8px;
+    
+}
+#screenTop{
+    width: 66%;
+    height: 83%;
+    background: #F8F8F8;
+    margin-top: 3%;
     margin-left: 15%;
     border-radius: 15px;
     border: #282828 solid 8px;
