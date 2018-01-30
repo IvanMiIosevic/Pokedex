@@ -342,7 +342,7 @@ form{
 transform: translate(-100%);
 }
 .pokedex{
-    transform: translate(100px,40%) rotate3d(0, 0, 1, 90deg);
+    transform: translate(0px,40%) rotate3d(0, 0, 1, 90deg);
 }
 .beBlocked{
     z-index: 1;
