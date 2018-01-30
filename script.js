@@ -90,6 +90,7 @@ window.onload = function () {
     // Function to show suggestions while user is typing
     function search(array, keys) {
         document.querySelector('#nameinput').onkeydown = function () {
+           document.querySelector('#error').innerHTML = "";
             var current = document.querySelector('#nameinput').value;
             document.querySelector('#prediction').innerHTML = "";
             if (current.length >= 2) {
