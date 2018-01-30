@@ -1,27 +1,31 @@
-
 img{
-    width: 50%;
-    height: auto;
+    width: 150px;
+    height: 150px;
     text-align: center;
-    border:0;
     margin-left: 25%;
-    margin-top: 12%;
+    margin-top: -28%;
 }
 p{
     width: auto;
     text-align: center;
-    margin: auto;
+    margin: 0;
 }
 form{
     width: auto;
     text-align: center;
     margin: auto;
 }
+/************************
+*     POKEDEX PART      * 
+************************/
 .pokedex{
     width: 800px;
     height: 500px;
     margin: auto;
 }
+/************************
+*       TOP PART        * 
+************************/
 #topPart{
     width: 100%;
     height: 50%;
@@ -37,17 +41,90 @@ form{
     border-bottom: black solid 2px;
     border-left: black solid 2px;
     border-top: black solid 2px;
+    box-shadow: inset 0 0 10px #000000;
 }
+.Speakers{
+    width: 15px;
+   height: 15px; 
+   background: black;
+   border-radius: 50%; 
+   }
+   #topSpeaker{
+       margin-left: 50%;
+       margin-top: 30%;
+   }
+   #rightSpeaker{
+       margin-left: 75%;
+       margin-top: 15%;
+   }
+   #leftSpeaker{
+       margin-top: -10%;
+       margin-left: 25%;
+   }
+   #bottomSpeaker{
+       margin-left: 50%;
+       margin-top: 15%;
+   }
 #rightTop{
     width: 58%;
-    height: 100%;
+    height: 102%;
     background: #F26665;
     border-radius: 5px 50px 0px 0px;
     border-bottom: black solid 2px;
     border-right: black solid 2px;
     border-top: black solid 2px;
     border-left: black solid 2px;
+    box-shadow: inset 0 0 10px #000000;
 }
+#screenTop{
+    width: 66%;
+    height: 83%;
+    background: #F8F8F8;
+    margin-top: -46%;
+    margin-left: 15%;
+    border-radius: 15px;
+    border: #282828 solid 8px;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+#greyTopBlock{
+    width: 93%;
+    height: 80%;
+    background: #DFDFDF;
+    margin-left: 3%;
+    margin-top: 6%;
+    border-radius: 10px 25px 10px 10px;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+#cam{
+    width: 15px;
+    height: 15px; 
+    background: black;
+    border-radius: 50%;
+    margin-left: 108%;
+    margin-top: 30%;
+}
+.beBlocked{
+    position: relative;
+    z-index: 2;
+}
+#block{
+    margin-top: -49%;
+    margin-left: 10px;
+    position: relative;
+    z-index: 1;
+    background:#F26665;
+    height: 92%;
+    width: 94%;
+}
+/************************
+*     END TOP PART      * 
+************************/
+
+/***********************\
+*     MIDDLE PART       * 
+\***********************/
 #middleBlock{
     width: 58%;
     margin-left: 19.3%;
@@ -58,6 +135,7 @@ form{
     display: flex;
     flex-direction: row;
     background: #F26665;
+    box-shadow: inset 0 0 10px #000000;
 }
 #middleBlockLeft{
     border-right: black solid 2px;
@@ -80,6 +158,12 @@ form{
     width: 20%;
     margin-top: 0.5%;
 }
+/************************
+*    END MIDDLE PART    * 
+************************/
+/************************
+*     BOTTOM PART       * 
+************************/
 #bottomPart{
     width: 100%;
     height: 50%;
@@ -97,6 +181,7 @@ form{
     border-bottom: black solid 2px;
     border-left: black solid 2px;
     border-top: black solid 2px;
+    box-shadow: inset 0 0 10px #000000;
 }
 #rightBottom{
     width: 58.1%;
@@ -108,36 +193,16 @@ form{
     border-radius: 0px 0px 50px 0px;
     position: relative;
     z-index: 3;
+    box-shadow: inset 0 0 10px #000000;
 }
-#greyBlock{
+#greyBottomBlock{
     width: 125%;
     height: 80%;
     background: #DFDFDF;
     margin-left: -29%;
     margin-top: 6%;
     border-radius: 100px 0px 50px 100px;
-}
-.Speakers{
- width: 15px;
-height: 15px; 
-background: black;
-border-radius: 50%; 
-}
-#topSpeaker{
-    margin-left: 50%;
-    margin-top: 30%;
-}
-#rightSpeaker{
-    margin-left: 75%;
-    margin-top: 15%;
-}
-#leftSpeaker{
-    margin-top: -10%;
-    margin-left: 25%;
-}
-#bottomSpeaker{
-    margin-left: 50%;
-    margin-top: 15%;
+    box-shadow: inset 0 0 10px #000000;
 }
 #veryRightBottom{
     width: 17%;
@@ -149,24 +214,142 @@ border-radius: 50%;
     border-top: black solid 2px;
     position: relative;
     z-index: 1;
+    box-shadow: inset 0 0 10px #000000;
 }
 #screenBottom{
     width: 66%;
     height: 83%;
     background: #F8F8F8;
-    margin-top: -45%;
+    margin-top: -44%;
     margin-left: 15%;
     border-radius: 15px;
     border: #282828 solid 8px;
-    
+    box-shadow: inset 0 0 10px #000000;
 }
-#screenTop{
-    width: 66%;
-    height: 83%;
-    background: #F8F8F8;
-    margin-top: 3%;
-    margin-left: 15%;
-    border-radius: 15px;
-    border: #282828 solid 8px;
-    
+/************************
+*        STICKS         * 
+************************/
+#roundLeftJoystick{
+    margin-left: -25%;
+    margin-top: -40%;
+    width: 175px;
+    height: 175px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px #000000;
+    display: flex;
+    flex-direction: row;
+}
+#horizontalLeftStick{
+    margin-left: 17px;
+    margin-top: 73px;
+    height: 30px;
+    width: 139px;
+    background: #55504E;
+}
+#verticalLeftStick{
+    margin-left: -84px;
+    margin-top: 20px;
+    height: 133px;
+    width: 30px;
+    background: #55504E;
+}
+
+#roundRightJoystick{
+    margin-left: 6%;
+    margin-top: 6%;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px #000000;
+    display: flex;
+    flex-direction: row;
+}
+#horizontalRightStick{
+    height: 20px;
+    width: 65px;
+    margin-left: 19px;
+    margin-top: 40px;
+    background: #DFDFDF;
+}
+#verticalRightStick{
+    margin-left: -42px;
+    margin-top: 18px;
+    height: 65px;
+    width: 20px;
+    background: #DFDFDF;
+}
+/************************
+*      END STICKS       * 
+************************/
+/************************
+*     END BOTTOM PART   * 
+************************/
+/************************
+*   END POKEDEX PART    * 
+************************/
+/************************
+*        TEXT           * 
+************************/
+.title{
+    font-weight: bold;
+}
+#name{
+    margin-right: 150px;
+}
+
+#types{
+    margin-right: 175px;
+}
+
+#stats{
+    margin-right: 250px;
+}
+
+#attack{
+    margin-right: 200px;
+}
+
+#defense{
+    margin-right: 200px;
+}
+
+#movesInfo{
+    margin-right: 240px;
+}
+#moves{
+    margin-right: 80px;
+}
+#error{
+    font-weight: bold;
+}
+/************************
+*      END TEXT         * 
+************************/
+
+@media (max-width: 769px){
+#topPart{
+    transform: translate(0,120%) rotate3d(1, 0, 0, 190deg);;
+    position: relative;
+    z-index: 3;
+}
+#bottomPart{
+    position: relative;
+    z-index: 0;
+}
+#veryRightBottom{
+transform: translate(-100%);
+}
+.pokedex{
+    transform: translate(100px,40%) rotate3d(0, 0, 1, 90deg);
+}
+.beBlocked{
+    z-index: 1;
+}
+#block{
+    margin-top: -49.3%;
+    height: 92%;
+    z-index: 2;
+}
 }
