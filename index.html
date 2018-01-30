@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pokédex</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
     <div class="form">
-        <form action="" name="pokename" id="myForm">
+        <form name="pokename" id="myForm">
             <input type="text" name="name" id="nameinput" placeholder="name or id">
             <input type="submit" name="btnSubmit">
         </form>
+        <br>
         <p id="error"></p>
         <p id="prediction"></p>
     </div>
@@ -22,20 +23,21 @@
     <div class="pokedex">
         <div id="topPart">
             <div id="leftTop">
-                <div id="topSpeaker" class="Speakers"></div>
-                <div id="rightSpeaker" class="Speakers"></div>
-                <div id="leftSpeaker" class="Speakers"></div>
-                <div id="bottomSpeaker" class="Speakers"></div>
+                <div id="topSpeaker" class="Speakers beBlocked"></div>
+                <div id="rightSpeaker" class="Speakers beBlocked"></div>
+                <div id="leftSpeaker" class="Speakers beBlocked"></div>
+                <div id="bottomSpeaker" class="Speakers beBlocked"></div>
+                <div id="speakerBlock"></div>
             </div>
             <div id="rightTop">
                 <div id="greyTopBlock" class="beBlocked"></div>
-                <div id="screenTop"class="beBlocked">
-                    <div id="cam"class="beBlocked"></div>
+                <div id="screenTop" class="beBlocked">
+                    <div id="cam" class="beBlocked"></div>
                     <div class="img beBlocked">
                         <img id="img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="pokemonIcon">
                     </div>
-            </div>
-            <div id="block"></div>
+                </div>
+                <div id="block"></div>
             </div>
         </div>
         <div id="middleBlock">
@@ -59,13 +61,17 @@
                     </div>
                     <div id="screenBottom">
                         <div class="infos">
+                            <br>
                             <p id="name"></p>
+                            <br>
                             <p id="types"></p>
+                            <br>
                             <p id="stats" class="title"></p>
-                            <p id="attack" ></p>
-                            <p id="defense" ></p>
+                            <p id="attack"></p>
+                            <p id="defense"></p>
+                            <br>
                             <p id="movesInfo" class="title"></p>
-                            <p id="moves" ></p>
+                            <p id="moves"></p>
                         </div>
                     </div>
                 </div>

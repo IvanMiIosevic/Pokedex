@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "poke";
+    src: url("./Pokemon GB.ttf");
+  }
+*{
+    font-family: "poke";
+    font-size: 10px;
+}
 img{
     width: 150px;
     height: 150px;
@@ -67,7 +75,7 @@ form{
    }
 #rightTop{
     width: 58%;
-    height: 102%;
+    height: 100%;
     background: #F26665;
     border-radius: 5px 50px 0px 0px;
     border-bottom: black solid 2px;
@@ -88,7 +96,7 @@ form{
 }
 
 #greyTopBlock{
-    width: 93%;
+    width: 91%;
     height: 80%;
     background: #DFDFDF;
     margin-left: 3%;
@@ -107,16 +115,25 @@ form{
 }
 .beBlocked{
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 #block{
     margin-top: -49%;
     margin-left: 10px;
     position: relative;
-    z-index: 1;
+    z-index: 0;
     background:#F26665;
     height: 92%;
-    width: 94%;
+    width: 92.1%;
+}
+#speakerBlock{
+    margin-top: -66%;
+    margin-left: 38px;
+    position: relative;
+    z-index: 0;
+    background: #F26665;
+    height: 49%;
+    width: 60%;
 }
 /************************
 *     END TOP PART      * 
@@ -296,7 +313,7 @@ form{
     font-weight: bold;
 }
 #name{
-    margin-right: 150px;
+    margin-right: 100px;
 }
 
 #types{
@@ -304,22 +321,19 @@ form{
 }
 
 #stats{
-    margin-right: 250px;
+    margin-right: 230px;
 }
 
 #attack{
-    margin-right: 200px;
+    margin-right: 100px;
 }
 
 #defense{
-    margin-right: 200px;
+    margin-right: 100px;
 }
 
 #movesInfo{
-    margin-right: 240px;
-}
-#moves{
-    margin-right: 80px;
+    margin-right: 220px;
 }
 #error{
     font-weight: bold;
@@ -328,7 +342,7 @@ form{
 *      END TEXT         * 
 ************************/
 
-@media (max-width: 769px){
+@media (max-width: 769px) , (orientation:portrait){
 #topPart{
     transform: translate(0,120%) rotate3d(1, 0, 0, 190deg);;
     position: relative;
@@ -350,6 +364,9 @@ transform: translate(-100%);
 #block{
     margin-top: -49.3%;
     height: 92%;
+    z-index: 2;
+}
+#speakerBlock{
     z-index: 2;
 }
 .form{
