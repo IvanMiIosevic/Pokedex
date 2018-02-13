@@ -12,12 +12,14 @@
 <body>
     <div class="form">
         <form name="pokename" id="myForm">
-            <input type="text" name="name" id="nameinput" placeholder="name or id">
+            <input type="text" name="name" id="nameinput" placeholder="name or id" list="nameList" />
             <input type="submit" name="btnSubmit">
         </form>
         <br>
+        
+<datalist id="nameList">
+</datalist>
         <p id="error"></p>
-        <p id="prediction"></p>
     </div>
     <br>
     <div class="pokedex">
