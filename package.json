@@ -1,0 +1,23 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "151 Pokémons",
+  "main": "script.js",
+  "dependencies": {
+    "npm": "^5.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanMiIosevic/Pokedex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanMiIosevic/Pokedex/issues"
+  },
+  "homepage": "https://github.com/IvanMiIosevic/Pokedex#readme"
+}

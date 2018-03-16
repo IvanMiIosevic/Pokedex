@@ -12,10 +12,10 @@ window.onload = function () {
             }
         };
         xhr.send();
-                    // querySelector, jQuery style
-                    var $ = function (selector) {
-                        return document.querySelector(selector);
-                    };
+       // querySelector, jQuery style
+            var $ = function (selector) {
+             return document.querySelector(selector);
+            };
         // Receive Data from Ajax and Handle it
         function Mypokedex(array) {
             $('#myForm').onsubmit = function () {
