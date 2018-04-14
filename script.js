@@ -1,17 +1,20 @@
-window.onload = function () {
     var options = '';
         // AJAX REQUEST 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'pokemons.json', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                var PokeInfo = JSON.parse(xhr.responseText);
-                prepareDaralist(PokeInfo);
-                Mypokedex(PokeInfo);
-            }
-        };
-        xhr.send();
+        fetch('pokemons.json')
+            .then(function(response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' + response.status);
+                    return;
+                }
+                // Examine the text in the response
+                response.json().then(function(data) {
+                    prepareDaralist(data);
+                    Mypokedex(data);
+                });
+            })
+            .catch(function(err) {
+                console.log('Fetch Error :-S', err);
+            });
        // querySelector, jQuery style
             var $ = function (selector) {
              return document.querySelector(selector);
@@ -97,4 +100,3 @@ window.onload = function () {
             }
             $('#nameList').innerHTML = options;
         }
-        };
