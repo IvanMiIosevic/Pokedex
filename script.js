@@ -1,4 +1,3 @@
-    var options = '';
         // AJAX REQUEST 
         fetch('pokemons.json')
             .then(function(response) {
@@ -8,28 +7,28 @@
                 }
                 // Examine the text in the response
                 response.json().then(function(data) {
-                    prepareDaralist(data);
-                    Mypokedex(data);
+                    prepareDatalist(data);
+                    myPokedex(data);
                 });
             })
             .catch(function(err) {
                 console.log('Fetch Error :-S', err);
             });
-       // querySelector, jQuery style
+            // querySelector, jQuery style
             var $ = function (selector) {
              return document.querySelector(selector);
             };
         // Receive Data from Ajax and Handle it
-        function Mypokedex(array) {
-            $('#myForm').onsubmit = function () {
-                //Reset Values
-                var nameField = $('#name');
-                nameField.innerHTML = "";
-                var typeField = $('#types');
-                typeField.innerHTML = "";
-                var img = $('img');
-                // This source is a blank image to prevent border and icon
-                img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    function myPokedex(array) {
+        $('#myForm').onsubmit = function () {
+        //Reset Values
+        var nameField = $('#name');
+        nameField.innerHTML = "";
+        var typeField = $('#types');
+        typeField.innerHTML = "";
+        var img = $('img');
+        // This source is a blank image to prevent border and icon
+                img.src = "";
                 $('#stats').innerHTML = "";
                 $('#attack').innerHTML = "";
                 $('#defense').innerHTML = "";
@@ -37,7 +36,7 @@
                 $('#moves').innerHTML = "";
                 var error = $('#error');
                 $('#moves').innerHTML = "";
-                var selectedPokemon = nameModification($('#nameinput').value);
+                var selectedPokemon = nameModification($('#nameInput').value);
                 for (var i in array) {
                     // call function to tweak the name
                     var name = nameModification(array[i].name);
@@ -48,7 +47,7 @@
                         typeField.innerHTML = " <span class='title'>Type :</span> &nbsp;" + array[i].type;
                         $('#stats').innerHTML = "Stats : ";
                         $('#attack').innerHTML = "Attack : " + array[i].attack;
-                        $('#defense').innerHTML = "Defense : " + array[i].defense;
+                     $('#defense').innerHTML = "Defense : " + array[i].defense;
                         $('#movesInfo').innerHTML = "Moves : ";
                         $('#moves').innerHTML = getAttacks(array, i);
                         error.innerHTML = "";
@@ -59,7 +58,7 @@
                         //check if input value is a number
                         if (parseInt(selectedPokemon)) {
                             img.src = "http://www.pokestadium.com/sprites/xy/unown-interrogation.gif";
-                            error.innerHTML = ` Pokémon number ${selectedPokemon} not found `;
+                            error.innerHTML = ` Pokemon number ${selectedPokemon} not found `;
                         } else {
                             img.src = "http://www.pokestadium.com/sprites/xy/unown-interrogation.gif";
                             error.innerHTML = ` ${selectedPokemon} not found `;
@@ -71,12 +70,11 @@
         }
         // Tweak the name to be able to use it properly
         function nameModification(name) {
-            var rawName = name;
-            var loweredName = rawName.toLowerCase();
+            var loweredName = name.toLowerCase();
             var firstTweak = loweredName.replace(/\s/g, '').replace(":", "").replace(".", "-");
             var nidoranTweak = firstTweak.replace("♀", "f").replace("♂", "m");
-            var pokeclean = nidoranTweak.replace("'", "");
-            return pokeclean;
+            var cleanedName = nidoranTweak.replace("'", "");
+            return cleanedName;
         }
 
         function getUrl(name) {
@@ -94,9 +92,12 @@
             }
             return moves;
         }
-        function prepareDaralist(array) {
+        function prepareDatalist(array) {
+            let options = '';
             for (var i in array) {
-                options += '<option value="' + array[i].name + '" />';
+                let currentOption = document.createElement('option');
+                currentOption.value = array[i].name;
+                $('#nameList').appendChild(currentOption);
             }
-            $('#nameList').innerHTML = options;
+            return;
         }
