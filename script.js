@@ -1,103 +1,91 @@
-        // AJAX REQUEST 
-        fetch('pokemons.json')
-            .then(function(response) {
-                if (response.status !== 200) {
-                    console.log('Looks like there was a problem. Status Code: ' + response.status);
-                    return;
-                }
-                // Examine the text in the response
-                response.json().then(function(data) {
-                    prepareDatalist(data);
-                    myPokedex(data);
-                });
-            })
-            .catch(function(err) {
-                console.log('Fetch Error :-S', err);
-            });
-            // querySelector, jQuery style
-            var $ = function (selector) {
-             return document.querySelector(selector);
-            };
-        // Receive Data from Ajax and Handle it
-    function myPokedex(array) {
-        $('#myForm').onsubmit = function () {
-        //Reset Values
-        var nameField = $('#name');
-        nameField.innerHTML = "";
-        var typeField = $('#types');
-        typeField.innerHTML = "";
-        var img = $('img');
-        // This source is a blank image to prevent border and icon
-                img.src = "";
-                $('#stats').innerHTML = "";
-                $('#attack').innerHTML = "";
-                $('#defense').innerHTML = "";
-                $('#movesInfo').innerHTML = "";
-                $('#moves').innerHTML = "";
-                var error = $('#error');
-                $('#moves').innerHTML = "";
-                var selectedPokemon = nameModification($('#nameInput').value);
-                for (var i in array) {
-                    // call function to tweak the name
-                    var name = nameModification(array[i].name);
-                    if (selectedPokemon === i || selectedPokemon === name) {
-                        // display infos about pokemon
-                        nameField.innerHTML = " <span class='title'>Name :</span> &nbsp;" + array[i].name + " #" + i;
-                        img.src = getUrl(name);
-                        typeField.innerHTML = " <span class='title'>Type :</span> &nbsp;" + array[i].type;
-                        $('#stats').innerHTML = "Stats : ";
-                        $('#attack').innerHTML = "Attack : " + array[i].attack;
-                     $('#defense').innerHTML = "Defense : " + array[i].defense;
-                        $('#movesInfo').innerHTML = "Moves : ";
-                        $('#moves').innerHTML = getAttacks(array, i);
-                        error.innerHTML = "";
-                        // call function to get attacks
-                        getAttacks(array, i);
-                        break;
-                    } else {
-                        //check if input value is a number
-                        if (parseInt(selectedPokemon)) {
-                            img.src = "http://www.pokestadium.com/sprites/xy/unown-interrogation.gif";
-                            error.innerHTML = ` Pokemon number ${selectedPokemon} not found `;
-                        } else {
-                            img.src = "http://www.pokestadium.com/sprites/xy/unown-interrogation.gif";
-                            error.innerHTML = ` ${selectedPokemon} not found `;
-                        }
-                    }
-                }
-                return false;
-            };
-        }
-        // Tweak the name to be able to use it properly
-        function nameModification(name) {
-            var loweredName = name.toLowerCase();
-            var firstTweak = loweredName.replace(/\s/g, '').replace(":", "").replace(".", "-");
-            var nidoranTweak = firstTweak.replace("♀", "f").replace("♂", "m");
-            var cleanedName = nidoranTweak.replace("'", "");
-            return cleanedName;
-        }
+// querySelector, jQuery style
+const $ = selector => document.querySelector(selector);
+// Tweak the name to be able to use it properly
+const nameModification = (name) => {
+  const loweredName = name.toLowerCase();
+  const spacelessName = loweredName.replace(/\s/g, '');
+  const colonLessName = spacelessName.replace(':', '');
+  const fromDotToHyphen = colonLessName.replace('.', '-');
+  const nidoranTweak = fromDotToHyphen.replace('♀', 'f').replace('♂', 'm');
+  const removedSingleQuoteName = nidoranTweak.replace("'", '');
+  return removedSingleQuoteName;
+};
 
-        function getUrl(name) {
-            return "http://www.pokestadium.com/sprites/xy/" + name + ".gif";
-        }
+const getUrl = name => `http://www.pokestadium.com/sprites/xy/${name}.gif`;
 
-        function getAttacks(array, number) {
-            var moves = "";
-            for (var i in array[number].moves) {
-                if (i != 1) {
-                    moves += array[number].moves[i] + "&nbsp;&nbsp;";
-                } else {
-                    moves += array[number].moves[i] + "&nbsp;&nbsp;<br>";
-                }
-            }
-            return moves;
+
+const getAttacks = (pokemon) => {
+  let moves = '';
+  for (let key = 0; key < pokemon.moves.length; key += 1) {
+    if (key !== 1) {
+      moves += ` ${pokemon.moves[key]}&nbsp;&nbsp;`;
+    } else {
+      moves += ` ${pokemon.moves[key]}&nbsp;&nbsp;<br>`;
+    }
+  }
+  return moves;
+};
+
+const resetFields = () => {
+  $('#name').innerHTML = '';
+  $('#types').innerHTML = '';
+  $('#stats').innerHTML = '';
+  $('#attack').innerHTML = '';
+  $('#defense').innerHTML = '';
+  $('#movesInfo').innerHTML = '';
+  $('#moves').innerHTML = '';
+};
+// Receive Data from Ajax and Handle it
+const myPokedex = (array) => {
+  $('#myForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Reset Values
+    resetFields();
+    const nameField = $('#name');
+    const typeField = $('#types');
+    const img = $('img');
+    const selectedPokemon = nameModification($('#nameInput').value);
+    for (let index = 1; index <= Object.keys(array).length; index += 1) {
+      // call function to tweak the name
+      const name = nameModification(array[index].name);
+      if (parseInt(selectedPokemon, 10) === index || selectedPokemon === name) {
+        // display infos about pokemon
+        nameField.innerHTML = `Name : ${array[index].name} #${index} `;
+        img.src = getUrl(name);
+        typeField.innerHTML = `Type : ${array[index].type}`;
+        $('#stats').innerHTML = 'Stats : ';
+        $('#attack').innerHTML = `Attack : ${array[index].attack}`;
+        $('#defense').innerHTML = `Defense : ${array[index].defense}`;
+        $('#movesInfo').innerHTML = 'Moves : ';
+        $('#moves').innerHTML = getAttacks(array[index]);
+        break;
+      } else if (selectedPokemon === '') {
+        img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+      } else {
+        // Check if input value is a number
+        if (parseInt(selectedPokemon, 10)) {
+          nameField.innerHTML = ` Pokemon number ${selectedPokemon} not found `;
+        } else {
+          nameField.innerHTML = ` ${selectedPokemon} not found `;
         }
-        function prepareDatalist(array) {
-            let options = '';
-            for (var i in array) {
-                let currentOption = document.createElement('option');
-                currentOption.value = array[i].name;
-                $('#nameList').appendChild(currentOption);
-            }
-            return;
-        }
+        img.src = 'http://www.pokestadium.com/sprites/xy/unown-interrogation.gif';
+      }
+    }
+    return false;
+  });
+};
+
+function prepareDatalist(array) {
+  for (let key = 0; key <= array.length; key += 1) {
+    const currentOption = document.createElement('option');
+    currentOption.value = array[key].name;
+    $('#nameList').appendChild(currentOption);
+  }
+}
+// AJAX REQUEST
+fetch('pokemons.json')
+  .then(response => response.json())
+  .then((data) => {
+    myPokedex(data);
+    prepareDatalist(data);
+  });
