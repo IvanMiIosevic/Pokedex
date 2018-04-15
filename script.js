@@ -1,5 +1,8 @@
+// enable when testing
+// const fetch = require('node-fetch');
 // querySelector, jQuery style
 const $ = selector => document.querySelector(selector);
+
 // Tweak the name to be able to use it properly
 const nameModification = (name) => {
   const loweredName = name.toLowerCase();
@@ -12,7 +15,6 @@ const nameModification = (name) => {
 };
 
 const getUrl = name => `http://www.pokestadium.com/sprites/xy/${name}.gif`;
-
 
 const getAttacks = (pokemon) => {
   let moves = '';
@@ -89,3 +91,9 @@ fetch('pokemons.json')
     myPokedex(data);
     prepareDatalist(data);
   });
+
+if (typeof exports !== 'undefined') {
+  exports.nameModification = nameModification;
+  exports.getUrl = getUrl;
+}
+

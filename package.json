@@ -4,7 +4,7 @@
   "description": "151 Pokémons",
   "main": "script.js",
   "scripts": {
-    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -21,13 +21,9 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
-    "karma": "^2.0.0",
-    "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-mocha": "^1.3.0",
     "mocha": "^5.1.0"
   },
   "dependencies": {
-    "eslint-config-airbnb": "^16.1.0"
+    "node-fetch": "^2.1.2"
   }
 }

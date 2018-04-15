@@ -1,9 +1,11 @@
-const assert = require('assert');
+const chai = require('chai');
+const app = require('../script');
 
-describe('Array', () => {
-  describe('#indexOf()', () => {
-    it('should return -1 when the value is not present', () => {
-      assert.equal(-1, [1, 2, 3].indexOf(4));
-    });
+describe('Pokedex project', () => {
+  it('should return toto-toto after tweaking the name', () => {
+    chai.assert.equal(app.nameModification('Mr. mime'), 'mr-mime');
+  });
+  it('should return http://www.pokestadium.com/sprites/xy/nameOfSelectedPokemon.gif', () => {
+    chai.assert.equal(app.getUrl('Pikachu'), 'http://www.pokestadium.com/sprites/xy/Pikachu.gif');
   });
 });
