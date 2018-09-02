@@ -1,7 +1,8 @@
 # Pokedex
 
-151 Pokemons // Basic pokedex in vanilla js
-Also tested a lot of things in this repo
+151 Pokemons // Basic pokedex in vanilla js.
+
+I Also tested a lot of things in this repo
 
 ## Table of Contents
 
