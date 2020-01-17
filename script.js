@@ -77,11 +77,11 @@ const myPokedex = (array) => {
   });
 };
 
-function prepareDatalist(array) {
-  for (let key = 0; key <= array.length; key += 1) {
-    const currentOption = document.createElement('option');
-    currentOption.value = array[key].name;
-    $('#nameList').appendChild(currentOption);
+function prepareDatalist(pokemons) {
+  for (let key = 1; key <= Object.keys(pokemons).length; key++) {
+    const currentOption = document.createElement("option");
+    currentOption.value = pokemons[key].name;
+    $("#nameList").appendChild(currentOption);
   }
 }
 // AJAX REQUEST
